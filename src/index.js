@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
-import { createBrowserHistory } from 'history';
+import { RouterProvider } from 'react-router5'
+import createRouter from './create-router'
 
 import configureStore from './store';
 
@@ -10,12 +10,12 @@ import App from './App';
 
 import './index.css';
 
-const history = createBrowserHistory();
+const router = createRouter();
 
 ReactDOM.render(
-  <Provider store={configureStore(history)}>
-    <ConnectedRouter history={history}>
+  <Provider store={configureStore(router)}>
+    <RouterProvider router={router}>
       <App />
-    </ConnectedRouter>
+    </RouterProvider>
   </Provider>,
   document.getElementById('root'));
