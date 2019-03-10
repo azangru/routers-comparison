@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from 'react-router';
+import { Link } from 'react-router-dom';
+
+import Page1 from './pages/page1';
+import Page2 from './pages/page2';
+import Page3 from './pages/page3';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+        <header>
+          <Link to="/">Page1</Link>
+          <Link to="/pages/page2">Page2</Link>
+          <Link to="/pages/page/3">Page3</Link>
         </header>
+        <div>
+          <Switch>
+            <Route exact path="/" component={Page1} />
+            <Route exact path="/pages/:pageNumber" component={Page2} />
+            <Route exact path="/pages/:type/:number" component={Page3} />
+            <Route render={() => (<div>Miss</div>)} />
+          </Switch>
+        </div>
       </div>
     );
   }
