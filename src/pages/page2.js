@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 const Page2 = ({ state }) => {
   console.log('state', state)
   return (
-    <div>
+    <div className="page">
       This is page 2
     </div>
   );
