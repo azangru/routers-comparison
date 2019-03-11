@@ -10,7 +10,6 @@ const reducers = combineReducers({
 })
 
 const configureStore = (router) => {
-  console.log('router', router);
   const store = createStore(
     reducers,
     composeEnhancers(

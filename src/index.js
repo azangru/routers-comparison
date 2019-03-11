@@ -12,10 +12,15 @@ import './index.css';
 
 const router = createRouter();
 
-ReactDOM.render(
+const wrappedApp = (
   <Provider store={configureStore(router)}>
     <RouterProvider router={router}>
       <App />
     </RouterProvider>
-  </Provider>,
-  document.getElementById('root'));
+  </Provider>
+);
+
+// NOTE: Remember to start the router
+router.start((err, state) => {
+  ReactDOM.render(wrappedApp, document.getElementById('root'))
+})
